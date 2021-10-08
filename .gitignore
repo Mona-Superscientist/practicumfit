@@ -1,0 +1,13 @@
+# Dependency directories
+node_modules/
+
+# Coverage directory used by tools like istanbul
+coverage
+
+# Test results directories
+results
+
+# Yarn Integrity file
+.yarn-integrity
+
+.vscode/
