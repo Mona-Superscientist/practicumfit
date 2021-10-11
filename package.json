@@ -12,7 +12,9 @@
     "test:firefox-headless": "./node_modules/cypress/bin/cypress run --browser firefox"
   },
   "devDependencies": {
+    "@types/faker": "^5.5.8",
     "cypress": "^8.5.0",
+    "faker": "^5.5.3",
     "mochawesome": "^6.3.1"
   },
   "dependencies": {
