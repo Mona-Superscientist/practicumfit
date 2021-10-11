@@ -1,6 +1,16 @@
 version: 2.1
 orbs:
-  cypress: cypress-io/cypress@1
+  cypress: cypress-io/cypress@1.29.0
+executors:
+  with-chrome:
+    docker:
+      - image: 'cypress/browsers:node14.16.0-chrome90-ff88'
+  with-firefox:
+    docker:
+      - image: 'cypress/browsers:node14.16.0-chrome90-ff88'
+  with-edge:
+    docker:
+      - image: 'cypress/browsers:node14.10.1-edge88'
 workflows:
   build:
       jobs:
@@ -9,20 +19,20 @@ workflows:
             name: Chrome
             requires:
               - cypress/install
-            executor: cypress/browsers:node14.17.0-chrome91-ff89
+            executor: with-chrome
             browser: chrome
             record: true
         - cypress/run:
             name: Firefox
             requires:
               - cypress/install
-            executor: cypress/browsers:node14.17.0-chrome91-ff89
+            executor: with-firefox
             browser: firefox
             record: true
         - cypress/run:
             name: Edge
             requires:
               - cypress/install
-            executor: cypress/browsers:node14.10.1-edge88
+            executor: with-edge
             browser: edge
             record: true
